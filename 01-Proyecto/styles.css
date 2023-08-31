@@ -2,85 +2,75 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font: 'Montserrat', sans-serif;
 }
 body{
-    font-family: 'Montserrat', sans-serif;
-    background-color: #dbe2ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to left,#f9f9f9, #ef7e56);
 }
 .card{
-    width: 400px;
+    width: 500px;
+    height: 250px;
+    display: flex;
     overflow: hidden;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
+    background: #f9f9f9;
+    box-shadow: 0 5px 10px #ded5c4;
     border-radius: 15px;
-    box-shadow: 7px 13px 37px rgb(0, 0, 0, .6);
-
 }
-.header{
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
+.card .img-card{
+    background: url(assets/img/portada.png);
+    width: 40%;
+    height: 100%;
+    background-size: cover;
 }
-.header::before{
-    content: '';
+.card .content{
+    width: 60%;
+    height: 100%;
+    grid-template-rows: 50px 150px 50px;
+    padding: 10px 15px;
+}
+.card .content .title h3{
+    color: #111f4d;
+    font-size: 24px;
+    justify-content: center;
+    padding: 8px;
+}
+.card .content .title span{
+    color: #ef7e56;
+    font-size: 20px;
+    padding: 8px;
+}
+.card .content .text p{
+    color: rgb(0, 0, 0, 0.6);
+    font-size: 12px;
+    padding: 8px;
+}
+.card .links{
     position: absolute;
-    border-top: 30px solid transparent;
-    border-left: 400px solid white;
-    bottom: 0;
+    width: 36px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: left;
 }
-.header .logo{
-    width: 100%;
-    height: 199px;
+.card .links a{
+    font-size: 16px;
+    color: #646059;
+}
+.card .links a:nth-child(1):hover{
+    color: #0e76a8;
+}
+.card .links a:nth-child(2):hover{
+    color:#171515;
+}
+.card .links a:nth-child(3):hover{
+    color:#00acee;
+}
+.card .links a:nth-child(4):hover{
+    color:#3b5998;
+}
 
-}
-.contenedor{
-    padding: 10px;
-    overflow: hidden;
-    text-align: center;
-}
-.contenedor h2{
-    margin: .5em 0;
-}
-.contenedor .parrafo{
-    margin: 1em 0;
-}
-ul li{
-    list-style: none;
-    display: inline-block;
-    margin: .5em .2em;
-}
-ul li a{
-    text-decoration: none;
-    color: white;
-    background: #314652;
-    width: 50px;
-    height: 50px;
-    line-height: 50px !important;
-    border-radius: 50%;
-    transition: all .4s ease-in-out;
-}
-ul li a:hover{
-    transform: scale(1.2);
-}
-footer{
-    width: 100%;
-    height: 80px;
-    background: #314652;
-    color: white;
-    position: relative;
-}
-footer::before{
-    content: '';
-    position: absolute;
-    border-bottom: 30px solid transparent;
-    border-right: 400px solid white;
-    top: 0;
-}
-footer p {
-    padding: 30px;
-    
-}
