@@ -1,6 +1,5 @@
 *{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font: 'Montserrat';
 }
@@ -12,8 +11,8 @@ body{
     background: linear-gradient(to left,#f9f9f9, #ef7e56);
 }
 .card{
-    width: 500px;
-    height: 250px;
+    width: 800px;
+    height: 80vh;
     display: flex;
     overflow: hidden;
     background: #f9f9f9;
@@ -27,14 +26,16 @@ body{
 }
 .card .img-card{
     background: url(assets/img/portada.png);
-    width: 16rem;
+    display: flex;
+    width: 40%;
     height: auto;
     background-size: cover;
-    align-items: center;
+    /*align-items: center;*/
+    background-position:center;
 }
 .card .content{
     width: 60%;
-    height: 100%;
+    height: auto;
     grid-template-rows: 50px 150px 50px;
     padding: 10px 15px;
 }
@@ -63,15 +64,13 @@ body{
 }
 .card .content .links{
     padding: 8px;
-    position: sticky;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    gap: 10px;    
+    gap: 20px;    
 }
 .card .links a{
     /*display: flex;*/
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #646059;
 }
 .card .links a:nth-child(1):hover{
