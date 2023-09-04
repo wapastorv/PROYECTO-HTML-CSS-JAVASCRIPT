@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font: 'Montserrat', sans-serif;
+    font: 'Montserrat';
 }
 body{
     display: flex;
@@ -19,6 +19,11 @@ body{
     background: #f9f9f9;
     box-shadow: 0 5px 10px #ded5c4;
     border-radius: 15px;
+    transition: 0.4s;
+}
+.card:hover{
+    box-shadow: 0 5px 10px black;
+    cursor: pointer;
 }
 .card .img-card{
     background: url(assets/img/portada.png);
@@ -32,33 +37,40 @@ body{
     grid-template-rows: 50px 150px 50px;
     padding: 10px 15px;
 }
-.card .content .title h3{
+.card .content .title h1{
     color: #111f4d;
-    font-size: 24px;
+    font-size: 18px;
     justify-content: center;
+    position:relative;
     padding: 8px;
+    text-align: center;
 }
-.card .content .title span{
+.card .content .title h3{
     color: #ef7e56;
-    font-size: 20px;
+    font-size: 16px;
     padding: 8px;
+    text-align: center;
 }
 .card .content .text p{
     color: rgb(0, 0, 0, 0.6);
-    font-size: 12px;
+    font-size: 14px;
     padding: 8px;
-}
-.card .links{
-    position: absolute;
-    width: 36px;
     display: flex;
-    flex-direction: row;
-    gap: 20px;
     align-items: center;
-    justify-content: left;
+    text-align: center;
+
+}
+.card .content .links{
+    padding: 8px;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;    
 }
 .card .links a{
-    font-size: 16px;
+    /*display: flex;*/
+    font-size: 1.5rem;
     color: #646059;
 }
 .card .links a:nth-child(1):hover{
