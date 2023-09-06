@@ -25,7 +25,8 @@ main {
 /* Encabezado */
 header {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
     padding: 20px;
 }
@@ -121,3 +122,4 @@ header h1 {
         max-height: 100%; /* Ajusta la altura de la imagen automáticamente */
     }
 }
+
