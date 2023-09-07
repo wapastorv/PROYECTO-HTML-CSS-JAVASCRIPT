@@ -8,6 +8,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -15,27 +16,12 @@ body {
     margin: 0;
 }
 
-/* Contenedor principal */
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
 /* Encabezado */
 header {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     text-align: center;
     padding: 20px;
-}
-
-header h1 {
-    color: #111f4d;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
 }
 
 /* Tarjeta */
@@ -46,12 +32,12 @@ header h1 {
     box-shadow: 0 5px 10px #ded5c4;
     border-radius: 15px;
     transition: 0.4s;
-    margin-top: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
     overflow: hidden; /* Para ocultar el desbordamiento de la imagen */
+    padding: 20px;
+    text-align: center;
 }
 
 .card:hover {
@@ -60,8 +46,7 @@ header h1 {
 }
 
 /* Imagen de la tarjeta */
-.card .content img {
-    display: flex;
+.card  img {
     max-width:250px;
     max-height: 250px; /* Limita la altura de la imagen */
     object-fit: cover; /* Ajusta la imagen dentro del contenedor */
@@ -69,21 +54,16 @@ header h1 {
 }
 
 /* Contenido de la tarjeta */
-.content {
-    padding: 20px;
-    text-align: center;
-}
 
-.content h3 {
+.card  h3 {
     color: #111f4d;
     font-size: 24px;
 }
 
-.content p {
+.card p {
     color: rgba(0, 0, 0, 0.6);
     font-size: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    padding:20px ;
 }
 
 /* Enlaces de redes sociales */
@@ -91,7 +71,7 @@ header h1 {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
+    padding: 20px;
 }
 
 .links a {
