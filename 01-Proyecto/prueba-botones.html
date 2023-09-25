@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        #contador {
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>Botón Incrementar, Disminuir y Resetear</title>
+</head>
+<body>
+    <h1>Contador:</h1>
+    <p id="contador">0</p>
+
+    <button id="incrementar">Incrementar</button>
+    <button id="disminuir">Disminuir</button>
+    <button id="resetear">Resetear</button>
+
+    <script>
+        // Obtén una referencia a los elementos del DOM
+        const contadorElemento = document.getElementById('contador');
+        const incrementarBoton = document.getElementById('incrementar');
+        const disminuirBoton = document.getElementById('disminuir');
+        const resetearBoton = document.getElementById('resetear');
+
+        // Variable para llevar el seguimiento del contador
+        let contador = 0;
+
+        // Función para incrementar el contador
+        function incrementar() {
+            contador++;
+            contadorElemento.textContent = contador;
+        }
+
+        // Función para disminuir el contador
+        function disminuir() {
+            contador--;
+            contadorElemento.textContent = contador;
+        }
+
+        // Función para resetear el contador
+        function resetear() {
+            contador = 0;
+            contadorElemento.textContent = contador;
+        }
+
+        // Asocia las funciones a los eventos de los botones
+        incrementarBoton.addEventListener('click', incrementar);
+        disminuirBoton.addEventListener('click', disminuir);
+        resetearBoton.addEventListener('click', resetear);
+    </script>
+</body>
+</html>
