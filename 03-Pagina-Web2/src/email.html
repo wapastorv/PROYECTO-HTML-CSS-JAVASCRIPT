@@ -33,6 +33,7 @@
             display: grid;
             grid-template-rows: auto 1fr auto;
             width: 300px;
+            justify-items: center;
         }
         .logo{
             width: 150px;
@@ -53,23 +54,30 @@
             margin-bottom: 32px;
             text-align: center;
         }
-        .form{
-            display: flex;
-            flex-direction: column;
-        }
-        .label{
-            font-size: var(--sm);
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        .input{
+        .email-image{
+            width: 132px;
+            height: 132px;
+            border-radius: 50%;
             background-color: var(--text-input-field);
-            border: none;
-            border-radius: 8px;
-            height: 30px;
-            font-size: var(--md);
-            padding: 6px;
-            margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+
+        }
+        .email-image img{
+            width: 70px;
+        }
+        .reenviar{
+            font-size: var(--sm);
+
+        }
+        .reenviar span{
+            color: var(--very-light-pink);        
+        }
+        .reenviar a{
+            color: var(--hospital-green);        
+            text-decoration: none;
         }
         .primary-button{
             background-color: var(--hospital-green);
@@ -99,22 +107,23 @@
 <body>
     <section class="login">
         <div class="form-containert">
-            <img src="./logos/logo_yard_sale.svg" alt="Logo" class="logo">
+            <img src="./../assets/logos/" alt="Logo" class="logo">
 
-            <h1 class="title"> Crear una nueva contraseña</h1>
-            <p class="subtitle">Ingresar una nueva contraseña para su cuenta</p>
+            <h1 class="title">¡El correo ha sido enviado!</h1>
+            <p class="subtitle">
+                Por favor revise su bandeja de entrada para obtener instrucciones 
+                sobre cómo restablecer la contraseña.
+            </p>
 
-            <form action="/" class="form">
-                <label for="password" class="label">Contraseña</label>
-                <input type="password" id="password" placeholder="**********" class="input input-password">
-
-                <label for="re-password" class="label">Escriba nuevamente la contraseña</label>
-                <input type="password" id="re-password" placeholder="**********" class="input input-password">
-
-                <input type="submit" value="Confirmar" class="primary-button login-button">
-            </form>
+            <figure class="email-image">
+                <img src="./../assets/icons/email.svg" alt="email">
+            </figure>
+            <button type="button" class="primary-button">Iniciar Sesión</button>
+            <p class="reenviar">
+                <span>No recibí el correo?</span>
+                <a href="/">Reenviar</a>
+            </p>
         </div>
-    </section>
-    
+    </section>    
 </body>
 </html>
