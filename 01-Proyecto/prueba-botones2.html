@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador con Botones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        #contador {
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        .boton-operacion {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .boton-operacion:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador:</h1>
+    <p id="contador">0</p>
+    <!-- atributos de datos personalizados  -->
+    <button class="boton-operacion" data-operacion="incrementar">Incrementar</button>
+    <button class="boton-operacion" data-operacion="disminuir">Disminuir</button>
+    <button class="boton-operacion" data-operacion="resetear">Resetear</button>
+
+    <script>
+        const contadorElemento = document.getElementById('contador');
+        const botonesOperacion = document.querySelectorAll('.boton-operacion');
+        console.log("resultado de botoes"+botonesOperacion);
+
+        let contador = 0;
+
+        // Función para realizar las operaciones
+        function operacion(accion) {
+            if (accion === 'incrementar') {
+                contador++;
+            } else if (accion === 'disminuir') {
+                contador--;
+            } else if (accion === 'resetear') {
+                contador = 0;
+            }
+            contadorElemento.textContent = contador;
+        }
+
+        // Asignar manejadores de eventos a los botones utilizando forEach
+        botonesOperacion.forEach(function (boton) {
+            boton.addEventListener('click', function () {
+                const accion = boton.getAttribute('data-operacion');
+                operacion(accion);
+            });
+        });
+    </script>
+</body>
+</html>
