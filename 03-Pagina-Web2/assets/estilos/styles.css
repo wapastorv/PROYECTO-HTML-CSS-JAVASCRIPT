@@ -261,7 +261,10 @@
     .desktop-menu{
       display: none;
     }
-    .grid-container {
+    .product-detail {
+      width: 100%;
+    }
+    .cards-container {
       display: grid;
       grid-template-columns:repeat(auto-fill, 140px);
     }
@@ -276,9 +279,7 @@
       width: 140px;
       height: 140px;
     }
-    .product-detail {
-      width: 100%;
-    }
+
   }
   @media (min-width: 641px){
 
