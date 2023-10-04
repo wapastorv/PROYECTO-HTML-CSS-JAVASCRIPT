@@ -70,12 +70,11 @@ function renderProducts(arr) {
       const productInfoDiv = document.createElement('div');
     
       const productPrice = document.createElement('p');
-      const convertProductPreci= product.price;
       const formatoColombiano = new Intl.NumberFormat('es-CO', {
         style: 'currency',
         currency: 'COP',
       });
-      productPrice.innerText = formatoColombiano.format(convertProductPreci);
+      productPrice.innerText = formatoColombiano.format(product.price);
       const productName = document.createElement('p');
       productName.innerText = product.name;
     
