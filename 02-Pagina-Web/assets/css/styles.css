@@ -1,39 +1,66 @@
-body{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+/* Estilo para el encabezado */
+header {
+    background-color: #fff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    display: flex; /* Mostrar los componentes en línea */
+    justify-content: space-between; /* Espaciado uniforme entre columnas */
+    width:950px;
 }
-.header img{
-    width: 90px;
-    height: auto;
-    margin: 0px;
-    top:0px;
-}
-.header{
-width: 100%;
-background-color: #FFFFFF;
-border-bottom-width: 1px;
-border-bottom-style: solid;
-border-bottom-color: black;
-display: flex;
-}
-.nav-bar{
+
+/* Estilo para las columnas A y B */
+.columna-a {
     display: flex;
-    width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
-.list{
+.columna-b{
+    display: flex;
+    justify-content: space-around;
+}
+
+.columna-a p {
+    width: 300px;
+}
+
+.vector-y-texto p{
+    color: #333;
+
+}
+.columna-a, .columna-b {
+    flex: 1; /* Distribución uniforme del espacio disponible */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo para los hipervínculos */
+.hipervinculos ul {
+    color: #333; /* Color del texto de los hipervínculos */
+    text-decoration: none;
     list-style: none;
-    width: 100%;
-    height: auto;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 10px;
-    text-decoration: none;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin:0px 10px;
-    padding: 0px;
-    align-content: center;
+    align-items: center;
+    height: 60px;
+    margin-left: 12px;
 }
-a{
-    text-decoration: none;
+
+/* Estilo para el logotipo de la empresa */
+.empresa {
+    /* Agrega estilos para el logotipo de la empresa aquí */
+}
+
+/* Estilo para el cuadro de búsqueda (searchBox) */
+.searchbox {
+    /* Agrega estilos para el cuadro de búsqueda aquí */
+}
+
+/* Estilo para la barra social de Logis y el carrito de compras */
+.logis-social-bar, .shopping-cart {
+    /* Agrega estilos para la barra social y el carrito de compras aquí */
+}
+
+/* Estilo para el menú de navegación */
+nav {
+    /* Agrega estilos para el menú de navegación aquí */
 }
