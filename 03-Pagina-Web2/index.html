@@ -41,12 +41,16 @@
     <div class="navbar-right">
       <ul>
         <li class="navbar-email">williampastor@outlook.com</li>
+        <li class="navbar-shopping-cart">
+          <img src="./assets/icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div>3</div>
+        </li>
       </ul>
     </div>
     <div class="desktop-menu inactive">
         <ul>
           <li>
-            <a href="/" class="title">Mis postulaciones</a>
+            <a href="/" class="title">Mis ordenes</a>
           </li>
     
           <li>
@@ -81,10 +85,10 @@
           </li>
         <ul>
           <li>
-            <a href="/">Mis postulaciones</a>
+            <a href="#">Mis ordenes</a>
           </li>
           <li>
-            <a href="/">Mi cuenta</a>
+            <a href="#">Mi cuenta</a>
           </li>
         </ul>
     
@@ -98,10 +102,11 @@
         </ul>
       </div>
   </nav>
-  <aside class="product-detail">
+
+  <aside id="shoppingCartContainer"class="inactive">
     <div class="title-container">
       <img src="./assets/icons/flechita.svg" alt="arrow">
-      <p class="title">My order</p>
+      <p class="title">Mi Orden</p>
     </div>
 
     <div class="my-order-content">
@@ -137,7 +142,8 @@
     </div>
   </div>
   </aside>
-  <aside class="product-detail inactive">
+  
+  <aside id="productDetail" class="inactive">
     <div class="product-detail-close">
       <img src="./assets/icons/icon_close.png" alt="close">
     </div>
@@ -152,10 +158,12 @@
       </button>
     </div>
   </aside>
+
   <section class="main-container">
     <div class="cards-container">
     </div>
   </section>
+
   <script src="./assets/js/main.js"></script>
 </body>
 </html>
