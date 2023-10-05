@@ -1,30 +1,106 @@
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        h1 {
-            font-size: 24px;
-        }
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to left, #f9f9f9, #ef7e56);
+    margin: 0;
+}
 
-        #contador {
-            font-size: 36px;
-            margin: 20px 0;
-        }
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
 
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-        }
+/* Tarjeta */
+.card {
+    max-width: 800px;
+    width: 90%;
+    background: #f9f9f9;
+    box-shadow: 0 5px 10px #ded5c4;
+    border-radius: 15px;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Para ocultar el desbordamiento de la imagen */
+    padding: 20px;
+    text-align: center;
+}
 
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+.card:hover {
+    box-shadow: 0 5px 10px black;
+    cursor: pointer;
+}
+
+/* Imagen de la tarjeta */
+.card  img {
+    max-width:250px;
+    max-height: 250px; /* Limita la altura de la imagen */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+    justify-content: flex-start;
+}
+
+/* Contenido de la tarjeta */
+
+.card  h3 {
+    color: #111f4d;
+    font-size: 24px;
+}
+
+.card p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    padding:20px ;
+}
+
+/* Enlaces de redes sociales */
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.links a {
+    font-size: 2rem;
+    color: #646059;
+    text-decoration: none;
+}
+
+.card .links a:nth-child(1):hover{
+    color: #0e76a8;
+}
+.card .links a:nth-child(2):hover{
+    color:#171515;
+}
+.card .links a:nth-child(3):hover{
+    color:#00acee;
+}
+.card .links a:nth-child(4):hover{
+    color:#3b5998;
+}
+
+/* Media query para hacer responsivo el diseño */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%;
+    }
+
+    .card img {
+        max-height: 100%; /* Ajusta la altura de la imagen automáticamente */
+    }
+}
+
