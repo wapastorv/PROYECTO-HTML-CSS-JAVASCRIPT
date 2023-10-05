@@ -23,11 +23,12 @@
       margin: 0;
       font-family: 'Quicksand', sans-serif;
     }
+
     .product-detail {
-      width: 360px;
-      padding-bottom: 24px;
-      position: absolute;
-      right: 0;
+      width: 350px;
+      padding-bottom: 16px;
+      display: grid;
+      place-items: center;
     }
     .product-detail-close {
       background: var(--white);
@@ -36,7 +37,6 @@
       position: absolute;
       top: 24px;
       left: 24px;
-      z-index: 2;
       padding: 12px;
       border-radius: 50%;
     }
@@ -50,7 +50,7 @@
       border-radius: 0 0 20px 20px;
     }
     .product-info {
-      margin: 24px 24px 0 24px;
+      margin: 18px 24px 0 24px;
     }
     .product-info p:nth-child(1) {
       font-weight: bold;
@@ -62,13 +62,13 @@
       color: var(--very-light-pink);
       font-size: var(--md);
       margin-top: 0;
-      margin-bottom: 36px;
+      margin-bottom: 18px;
     }
     .product-info p:nth-child(3) {
       color: var(--very-light-pink);
       font-size: var(--sm);
       margin-top: 0;
-      margin-bottom: 36px;
+      margin-bottom: 18px;
     }
     .primary-button {
       background-color: var(--hospital-green);
