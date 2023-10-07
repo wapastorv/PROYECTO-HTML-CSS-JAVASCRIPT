@@ -190,6 +190,7 @@ aside{
   border-color: var(--hospital-blue);
   border-radius: 15px;
   right: 0;
+  box-shadow: 4px 6px 26px 23px #000000;
 }
 
 /*ShoppingCart*/
