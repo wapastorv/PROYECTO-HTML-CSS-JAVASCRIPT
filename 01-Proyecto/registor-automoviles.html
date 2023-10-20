@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Automóviles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .form-container {
+            text-align: left;
+        }
+        .car-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Automóviles</h1>
+
+    <div class="container">
+        <div class="form-container">
+            <!-- Formulario de registro de automóviles (igual que en el ejemplo anterior) -->
+            <h2>Agregar Automóvil</h2>
+            <form id="car-form">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" required><br>
+
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" required><br>
+
+                <label for="annio">Año:</label>
+                <input type="text" id="annio" required><br>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Lista de Automóviles</h2>
+        <ul id="car-list" class="car-list">
+            <!-- La lista de automóviles se mostrará aquí -->
+        </ul>
+    </div>
+    <div id="edit-form-container" style="display: none;">
+        <h2>Editar Automóvil</h2>
+        <form id="edit-form">
+            <input type="hidden" id="edit-index" value="">
+            <label for="edit-marca">Marca:</label>
+            <input type="text" id="edit-marca" required><br>
+
+            <label for="edit-modelo">Modelo:</label>
+            <input type="text" id="edit-modelo" required><br>
+
+            <label for="edit-annio">Año:</label>
+            <input type="text" id="edit-annio" required><br>
+
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script>
+        const carForm = document.getElementById("car-form");
+        const carList = document.getElementById("car-list");
+        const editFormContainer = document.getElementById("edit-form-container");
+        const editForm = document.getElementById("edit-form");
+        const editIndex = document.getElementById("edit-index");
+        const editMarca = document.getElementById("edit-marca");
+        const editModelo = document.getElementById("edit-modelo");
+        const editAnnio = document.getElementById("edit-annio");
+        const cars = [];
+
+        carForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const marca = document.getElementById("marca").value;
+            const modelo = document.getElementById("modelo").value;
+            const annio = document.getElementById("annio").value;
+            
+            // Crear un objeto de automóvil
+            const car = { marca, modelo, annio };
+            cars.push(car);
+            
+            // Agregar el automóvil a la lista
+            renderCar(car, cars.length - 1);
+            
+            // Limpiar el formulario
+            carForm.reset();
+        });
+
+        function renderCar(car, index) {
+            const li = document.createElement("li");
+            li.innerHTML = `Marca: ${car.marca}, Modelo: ${car.modelo}, Año: ${car.annio} 
+                <button class="edit-button" data-index="${index}">Editar</button> 
+                <button class="delete-button" data-index="${index}">Eliminar</button>`;
+            carList.appendChild(li);
+
+            const editButtons = document.querySelectorAll(".edit-button");
+            const deleteButtons = document.querySelectorAll(".delete-button");
+
+            editButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const carIndex = button.getAttribute("data-index");
+                    editIndex.value = carIndex;
+                    editMarca.value = cars[carIndex].marca;
+                    editModelo.value = cars[carIndex].modelo;
+                    editAnnio.value = cars[carIndex].annio;
+                    editFormContainer.style.display = "block";
+                });
+            });
+
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const carIndex = button.getAttribute("data-index");
+                    cars.splice(carIndex, 1);
+                    carList.removeChild(li);
+                });
+            });
+        }
+
+        editForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const index = editIndex.value;
+            const marca = editMarca.value;
+            const modelo = editModelo.value;
+            const annio = editAnnio.value;
+
+            cars[index] = { marca, modelo, annio };
+
+            const li = carList.children[index];
+            li.innerHTML = `Marca: ${marca}, Modelo: ${modelo}, Año: ${annio} 
+                <button class="edit-button" data-index="${index}">Editar</button> 
+                <button class="delete-button" data-index="${index}">Eliminar</button>`;
+
+            editFormContainer.style.display = "none";
+        });
+    </script>
+</body>
+</html>
