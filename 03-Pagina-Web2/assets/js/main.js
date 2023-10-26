@@ -1,39 +1,65 @@
+// Obtén referencias a elementos del DOM
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu =  document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCardIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const iconsFlechaOrden = (document.querySelector('#shoppingCartContainer')).querySelector('img');
 const productDetailContainer = document.querySelector('#productDetail');
+const cardsContainer = document.querySelector('.cards-container');
 
 
+// Agregar event listeners a elementos
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCardIcon.addEventListener('click', toggleCardIcon);
+iconsFlechaOrden.addEventListener('click', toggleArrowOrden);
+
 
 // Funciones para cerrar o abir
+
+// Esta función alterna la clase 'inactive' en el contenedor de detalles del producto
 function toggleProductDetailContainer(){
   productDetailContainer.classList.toggle('inactive');
-  shoppingCartContainer.classList.add('inactive');
+  (document.querySelector('#shoppingCartContainer')).classList.add('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
 }
+
+// Obtener el contenedor de las tarjetas
+
+
+// Esta función alterna la clase 'inactive' en el menú de escritorioo
 function toggleDesktopMenu(){
   desktopMenu.classList.toggle('inactive');
-  shoppingCartContainer.classList.add('inactive');
+  (document.querySelector('#shoppingCartContainer')).classList.add('inactive');
   productDetailContainer.classList.add('inactive');
 
 }
+
+// Esta función alterna la clase 'inactive' en el menú móvil
 function toggleMobileMenu(){
   mobileMenu.classList.toggle('inactive');
-  shoppingCartContainer.classList.add('inactive')
+  (document.querySelector('#shoppingCartContainer')).classList.add('inactive');
   productDetailContainer.classList.add('inactive');
 }
+
+// Esta función alterna la clase 'inactive' en el contenedor del carrito de compra
 function toggleCardIcon(){
-  shoppingCartContainer.classList.toggle('inactive');
+  (document.querySelector('#shoppingCartContainer')).classList.toggle('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
-  productDetailContainer.classList.add('inactive')
+  productDetailContainer.classList.add('inactive');
+}
+
+// Esta función agrega la clase 'inactive' al contenedor del carrito de compra y al contenedor de detalles del producto
+
+function toggleArrowOrden(){
+  (document.querySelector('#shoppingCartContainer')).classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+  productDetailContainer.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
 }
 
 
@@ -51,12 +77,14 @@ function formatCurrency(price) {
 function renderProducts(arr) {
   const cardsContainer = document.querySelector('.cards-container');
   console,console.log(cardsContainer);
+
   // Verifica si .cards-container  existe
   if (!cardsContainer) {
     console.error("El elemento 'cardsContainer' no se encontró en el DOM.");
     return;
   }
 
+  // Recorre cada producto en el array 'arr' y crea una tarjeta para cada uno
   for (const product of arr) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -67,7 +95,7 @@ function renderProducts(arr) {
       showProductDetails(product);
     });
     
-  
+    // Crea un contenedor para la información del producto
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
   
@@ -97,6 +125,12 @@ function renderProducts(arr) {
     cardsContainer.appendChild(productCard);
   }
 }
+
+// Agrega un controlador de clic al elemento #productDetail para evitar la propagación de clics
+productDetailContainer.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+
 
 
 // Función para mostrar los detalles del producto en #productDetail
@@ -133,11 +167,6 @@ productDetail.innerHTML = productDetailContent;
 productDetail.classList.remove('inactive');
 
 
-//overlay.style.display = 'block';
-
-// Muestra la capa semitransparente
-//body.classList.add("fixed-elements");
-
 // Agrega un evento clic al elemento .product-detail-close
 const closeButton = productDetail.querySelector('.product-detail-close');
   if (closeButton) {
@@ -146,10 +175,7 @@ const closeButton = productDetail.querySelector('.product-detail-close');
       // Cierra el elemento #productDetail al hacer clic en .product-detail-close
       productDetail.classList.add('inactive');
 
-      // Oculta la capa semitransparente
-      //body.classList.remove("fixed-elements");
-      
-      //overlay.style.display = 'block';
+  
 
     });
   }
