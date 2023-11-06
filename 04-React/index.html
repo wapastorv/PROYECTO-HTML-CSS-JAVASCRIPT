@@ -21,33 +21,73 @@
             opacity: .3;;
         }
     </style>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
     <div id="app">
 
     </div>
-    <script>
+    <script type="text/babel">
+        // Componete de Avatar con React DOM
         const $app = document.getElementById("app");
-        // Componete de Avatar
-        const Avatar =  params =>{
-            const src= `https://randomuser.me/api/portraits/women/${params.id}.jpg`
-            return `<picture>
-                <img src="${src}" />
-                <h3> ${params.name}</h3>
-                </picture>     
-            `;
+        const useState = React.useState;
+
+        const Avatar = params => {
+            const [enabled, setEnable] = useState(true);
+            const src= `https://randomuser.me/api/portraits/women/${params.id}.jpg`;
+            //return h("img", { src });
+            const className = enabled ? "" : "disabled";
+            return(
+                <picture>
+                    <img 
+                        onClick={() => {
+                            setEnable(!enabled);
+                        }}
+                    className = {className}
+                    src = {src} />
+                    <strong> {params.name} </strong>
+                </picture>
+                );
         };
 
-        $app.innerHTML += Avatar({id:5, name:"Carolina"});
-        $app.innerHTML += Avatar({id:1, name:"Marcela"});
-        $app.innerHTML += Avatar({id:7, name:"Sandra"});
+        ReactDOM.render(
+            <div>
+                <Avatar id={20} name='Carolina' />
+                <Avatar id={70}name='Sara' />
+            </div>,
+            $app
+            );
 
-        $app.querySelectorAll('img').forEach(img => {
-            img.addEventListener('click', () => {
-                img.classList.toggle('disabled')
-            })
+            // h('div', null, [
+            //     h(Avatar, { id: 20}),
+            //     h(Avatar, {id: 12})
+            // ]), 
+            // $app
+            // 
+
+        // Componete de Avatar con JavaScript Vanilla
+        // const $app = document.getElementById("app");
+        // const Avatar =  params =>{
+        //     const src= `https://randomuser.me/api/portraits/women/${params.id}.jpg`
+        //     return `<picture>
+        //         <img src="${src}" />
+        //         <h3> ${params.name}</h3>
+        //         </picture>     
+        //     `;
+        // };
+
+        // $app.innerHTML += Avatar({id:5, name:"Carolina"});
+        // $app.innerHTML += Avatar({id:1, name:"Marcela"});
+        // $app.innerHTML += Avatar({id:7, name:"Sandra"});
+
+        // $app.querySelectorAll('img').forEach(img => {
+        //     img.addEventListener('click', () => {
+        //         img.classList.toggle('disabled')
+        //     })
             
-        });
+        // });
     </script>
 </body>
 </html>
