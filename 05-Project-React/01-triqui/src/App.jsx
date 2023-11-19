@@ -14,7 +14,8 @@ function App() {
 
   const [board, setBoard] = useState(() =>{
     const boardFromStorage = window.localStorage.getItem('board')
-    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)})
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+  })
 
   const [turn, setTurn] = useState(() => {
     const turnFromStorage = window.localStorage.getItem('turn')
@@ -29,7 +30,6 @@ function App() {
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
     setWinner(null)
-
     resetGameStorage()
   }
 
@@ -87,7 +87,6 @@ function App() {
         <Square isSelected = { turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected = { turn === TURNS.O} >{TURNS.O}</Square>
       </section>
-
       <WinnerModal resetGame={resetGame} winner={winner}/>
     </main>
     
