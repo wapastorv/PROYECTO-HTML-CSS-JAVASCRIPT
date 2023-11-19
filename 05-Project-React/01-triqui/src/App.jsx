@@ -53,13 +53,12 @@ function App() {
       turn : newTurn
     })
    
-    const newWinner= checkWinnerFrom(newBoard)
+    const newWinner = checkWinnerFrom(newBoard)
     if(newWinner) {
       confetti()
       setWinner(newWinner)
     }else if (checkEndGame(newBoard)){
       setWinner(false)
-
     }
 
   }
